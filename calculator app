@@ -1,33 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="calculator">
-        <input type="text" id="display" disabled>
-        <div class="buttons">
-            <button class="digit" onclick="handleDigitClick(7)">7</button>
-            <button class="digit" onclick="handleDigitClick(8)">8</button>
-            <button class="digit" onclick="handleDigitClick(9)">9</button>
-            <button class="operation" onclick="handleOperationClick('/')">/</button>
-            <button class="digit" onclick="handleDigitClick(4)">4</button>
-            <button class="digit" onclick="handleDigitClick(5)">5</button>
-            <button class="digit" onclick="handleDigitClick(6)">6</button>
-            <button class="operation" onclick="handleOperationClick('*')">*</button>
-            <button class="digit" onclick="handleDigitClick(1)">1</button>
-            <button class="digit" onclick="handleDigitClick(2)">2</button>
-            <button class="digit" onclick="handleDigitClick(3)">3</button>
-            <button class="operation" onclick="handleOperationClick('-')">-</button>
-            <button class="digit" onclick="handleDigitClick(0)">0</button>
-            <button class="clear" onclick="handleClearClick()">C</button>
-            <button class="equal" onclick="handleEqualClick()">=</button>
-            <button class="operation" onclick="handleOperationClick('+')">+</button>
-        </div>
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="row">
+        <button class="button" onclick="handleClick('7')">7</button>
+        <button class="button" onclick="handleClick('8')">8</button>
+        <button class="button" onclick="handleClick('9')">9</button>
+        <button class="button" onclick="handleClick('/')">/</button>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="row">
+        <button class="button" onclick="handleClick('4')">4</button>
+        <button class="button" onclick="handleClick('5')">5</button>
+        <button class="button" onclick="handleClick('6')">6</button>
+        <button class="button" onclick="handleClick('*')">*</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="handleClick('1')">1</button>
+        <button class="button" onclick="handleClick('2')">2</button>
+        <button class="button" onclick="handleClick('3')">3</button>
+        <button class="button" onclick="handleClick('-')">-</button>
+    </div>
+    <div class="row">
+        <button class="button" onclick="handleClick('0')">0</button>
+        <button class="button" onclick="handleClear()">C</button>
+        <button class="button" onclick="handleEqual()">=</button>
+        <button class="button" onclick="handleClick('+')">+</button>
+    </div>
+</div>
