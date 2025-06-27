@@ -1,68 +1,91 @@
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 2em;
-    text-align: center;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-section {
-    flex-basis: 30%;
-    margin: 20px;
-}
-
-.footer-section h3 {
-    margin-top: 0;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-section li {
-    margin-bottom: 10px;
-}
-
-.footer-section a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.social-media-links {
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-media-links li {
-    margin-right: 20px;
-}
-
-.social-media-links a {
-    font-size: 24px;
-}
-
-.fab {
-    font-size: 24px;
-    margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .footer-section {
-        flex-basis: 100%;
-        margin: 10px 0;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemasTech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="                
+                <li><a href="#">Features</a></li>
+                <li><a href="                   
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to RemasTech</h1>
+            <p>Monitor and control your energy consumption with your smart phone device.</p>
+            <button>Learn More</button>
+        </section>
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="icon1.png" alt="Feature 1 Icon">
+                
+                    <p>we sell airtime for all network.</p>
+                </div>
+                <div class="feature">
+                    <img src="icon2.png" alt="Feature 2 Icon">
+                
+                    <p>We also havecheaper data.</p>
+                </div>
+                <div class="feature">
+                    <img src="" alt="Feature 3 Icon">
+                
+                    <p>Pay for your capable tv subcription</p>
+                </div>
+            </div>
+        </section>
+        <section class="pricing">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="plan">
+                    <h3>Basic</h3>
+                    <p>$9.99/Day/weak</p>
+                    <ul>
+                        <li>Daily plan</li>
+                        <li>Weakly plan</li>
+                    </ul>
+                </div>
+                <div class="plan">
+                    <h3>Premium</h3>
+                    <p>$19.99/month</p>
+                    <ul>
+                        <li>5GB</li>
+                        <li>10GB</li>
+                        <li>UNLIMITED PLAN</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+</body>
+</html>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:info@RemasTech.com">info@RemasTech.com</a></li>
+                <li><i class="fas fa-phone"></i> <a href="tel:+1234567890">+1 (234) 567-8900</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-media-links">
+                <li><a href="                                                             
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>https://www.twitter.com/shuaib.musa.716
+                <li><a href="                                                            
+                <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>https://www.facebook.com/shuaib.musa.716</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2025 RemasTech. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
