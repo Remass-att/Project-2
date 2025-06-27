@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Unlock Your Potential with Remas Tech</h1>
+    <p>Monitor and control your energy consumption with your smart home device.</p>
+    <button class="cta-btn">Learn More</button>
+  </div>
+</section>
+<section class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+        <div class="feature">
+            <img src="file:///storage/msf/54824" alt="Feature 1 Icon">
+            <h3>Feature 1</h3>
+            <p>We have all network airtime.</p>
+        </div>
+        <div class="feature">
+            <img src="icon2.png" alt="Feature 2 Icon">
+            <h3>Feature 2</h3>
+            <p>Buy cheap data at Remas Tech.</p>
+        </div>
+        <div class="feature">
+            <img src="icon3.png" alt="Feature 3 Icon">
+            <h3>Feature 3</h3>
+            <p>Pay your capable TV subscription
+        </div>
+    </div>
+</section>
+<section class="hero">
+    <h1>Unlock Your Full Potential with EcoLife</h1>
+    <p>Monitor and control your energy consumption with our smart home device.</p>
+    <button class="cta-button">Get Started Today</button>
+</section>
+<button class="icon-btn">
+  <i class="fas fa-search"></i>
+</button>
