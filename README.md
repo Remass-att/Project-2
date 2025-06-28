@@ -1,77 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif;
-        }
-        
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        section {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        button:hover {
-            background-color: #111;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Hello World</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+    .app-container {
+      text-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+    h1 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+    code {
+      background: #f8f9fa;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #e53e3e;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>My Profile</h1>
-        <nav>
-            <ul>
-                <li><button>About Me</button></li>
-                <li><button>Hobbies</button></li>
-                <li><button>Contact</button></li>
-            </ul>
-        </nav>
-    </header>
-    <section>
-   <h2>About Me</h2>
-<img src="image-url.jpg" alt="IMG_9587.jpg">
-        <p>Hello, my name is Musa Abdulmumin. I'm a 400L student from ATBU a passionate individual with interests in technology, reading, and exploring new places.</p>
-        <button>Learn More</button>
-    </section>
-    <section>
-        <h2>My Hobbies</h2>
-        <ul>
-            <li>Reading</li>
-            <li>Coding</li>
-            <li>Traveling</li>
-        </ul>
-        <button>View More</button>
-    </section>
-    <footer>
-        <h2>Get in Touch</h2>
-        <p>Email: <a href="musa">musaabdulmuminshuaib@gmail.com</a></p>
-        <p>Telegram: @jremass</p>
-        <p>Facebook: https://www.facebook.com/shuaib.musa.716</p>
-        <button>Contact Me</button>
-    </footer>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <div className="app-container">
+          <h1>Hello World!</h1>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p><code>App.js</code>.</p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
+
