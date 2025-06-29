@@ -1,243 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Calculator</title>
-    <style>
-        :root {
-            --primary: #2d3436;
-            --secondary: #636e72;
-            --accent: #0984e3;
-            --light: #dfe6e9;
-            --dark: #2d3436;
-            --error: #d63031;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f6fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .calculator {
-            width: 320px;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        .display {
-            background-color: var(--dark);
-            color: white;
-            padding: 20px;
-            text-align: right;
-            position: relative;
-        }
-        
-        .current-operation {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            min-height: 24px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .current-input {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background-color: var(--light);
-        }
-        
-        button {
-            border: none;
-            outline: none;
-            padding: 20px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            background-color: white;
-            transition: all 0.2s;
-        }
-        
-        button:active {
-            background-color: #f1f2f6;
-        }
-        
-        button.operator {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        button.operator:active {
-            background-color: #0767b3;
-        }
-        
-        button.equals {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        button.equals:active {
-            background-color: #4b5356;
-        }
-        
-        button.clear {
-            background-color: var(--error);
-            color: white;
-            grid-column: span 2;
-        }
-
-        button.clear-entry {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        button.clear:active {
-            background-color: #b02324;
-        }
-        
-        button.wide {
-            grid-column: span 2;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="calculator">
-        <div class="display">
-            <div class="current-operation" id="operation"></div>
-            <div class="current-input" id="display">0</div>
-        </div>
-        <div class="buttons">
-            <button class="clear" onclick="clearAll()">AC</button>
-            <button class="clear-entry" onclick="clearEntry()">CE</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="chooseOperation('÷')">÷</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="chooseOperation('×')">×</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="chooseOperation('-')">-</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button class="equals" onclick="calculate()">=</button>
-            <button class="operator" onclick="chooseOperation('+')">+</button>
-        </div>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendOperator('/')">÷</button>
+      <button onclick="appendOperator('*')">×</button>
+      <button onclick="appendOperator('-')">−</button>
+      
+      <!-- Row 2 -->
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button onclick="appendOperator('+')">+</button>
+      
+      <!-- Row 3 -->
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="calculateResult()" class="equal">=</button>
+      
+      <!-- Row 4 -->
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button onclick="appendNumber('0')" class="zero">0</button>
     </div>
+  </div>
 
-    <script>
-        let currentInput = '0';
-        let previousInput = '';
-        let currentOperation = null;
-        let shouldResetScreen = false;
-        const display = document.getElementById('display');
-        const operationDisplay = document.getElementById('operation');
-        
-        function updateDisplay() {
-            display.textContent = currentInput;
-            operationDisplay.textContent = previousInput + (currentOperation ? ' ' + currentOperation : '');
-        }
-        
-        function appendToDisplay(number) {
-            if (shouldResetScreen) {
-                currentInput = '0';
-                shouldResetScreen = false;
-            }
-            if (currentInput === '0' && number !== '.') {
-                currentInput = number;
-            } else if (!(number === '.' && currentInput.includes('.'))) {
-                currentInput += number;
-            }
-            updateDisplay();
-        }
-        
-        function chooseOperation(operator) {
-            if (currentOperation !== null && !shouldResetScreen) {
-                calculate();
-            }
-            previousInput = currentInput;
-            currentOperation = operator;
-            shouldResetScreen = true;
-            updateDisplay();
-        }
-        
-        function calculate() {
-            if (currentOperation === null) return;
-            
-            let result;
-            const prev = parseFloat(previousInput);
-            const current = parseFloat(currentInput);
-            
-            if (isNaN(prev) || isNaN(current)) {
-                clearDisplay();
-                display.textContent = "Error";
-                return;
-            }
-            
-            switch (currentOperation) {
-                case '+':
-                    result = prev + current;
-                    break;
-                case '-':
-                    result = prev - current;
-                    break;
-                case '×':
-                    result = prev * current;
-                    break;
-                case '÷':
-                    if (current === 0) {
-                        clearDisplay();
-                        display.textContent = "Error";
-                        return;
-                    }
-                    result = prev / current;
-                    break;
-                default:
-                    return;
-            }
-            
-            currentInput = result.toString();
-            currentOperation = null;
-            shouldResetScreen = true;
-            updateDisplay();
-        }
-        
-        function clearAll() {
-            currentInput = '0';
-            previousInput = '';
-            currentOperation = null;
-            updateDisplay();
-        }
-
-        function clearEntry() {
-            currentInput = '0';
-            updateDisplay();
-        }
-        
-        // Initialize display
-        updateDisplay();
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
