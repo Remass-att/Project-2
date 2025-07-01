@@ -21,3 +21,101 @@
       <button onclick="appendOperator('+')">+</button>
 
       <button onclick="appendNumber('4')"
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  width: 260px;
+}
+
+.display {
+  background-color: #333;
+  color: #fff;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+.equal {
+  grid-row: span 2;
+  background-color: #4caf50;
+  color: white;
+}
+
+.equal:hover {
+  background-color: #43a047;
+}
+
+.zero {
+  grid-column: span 2;
+}
+let currentInput = "";
+const display = document.getElementById("display");
+
+function appendNumber(num) {
+  currentInput += num;
+  updateDisplay();
+}
+
+function appendOperator(op) {
+  const lastChar = currentInput.slice(-1);
+  if ("+-*/".includes(lastChar)) {
+    currentInput = currentInput.slice(0, -1) + op;
+  } else {
+    currentInput += op;
+  }
+  updateDisplay();
+}
+
+function clearDisplay() {
+  currentInput = "";
+  updateDisplay();
+}
+
+function calculateResult() {
+  try {
+    const result = eval(currentInput); // ⚠️ simple but not safe for untrusted input
+    currentInput = result.toString();
+    updateDisplay();
+  } catch {
+    display.textContent = "Error";
+    currentInput = "";
+  }
+}
+
+function updateDisplay() {
+  display.textContent = currentInput || "0";
+}
