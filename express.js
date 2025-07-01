@@ -1,26 +1,4 @@
 const express = require('express');
-const app = express();
-const userRoutes = require('./routes/users');
-
-app.use(express.json()); // Middleware for JSON body parsing
-app.use('/users', userRoutes);
-
-// Default route
-app.get('/', (req, res) => {
-  res.send('User API is running...');
-});
-
-// Handle invalid routes
-app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' });
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
-});
-
-const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
