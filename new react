@@ -1,48 +1,132 @@
-import React, { useState, useEffect } from 'react';
-import ListComponent from './components/ListComponent';
-import './App.css';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fictional Product Landing Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; }
+    .hero {
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .hero button {
+      background-color: #fff;
+      color: #4e54c8;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background: #f4f4f4;
+    }
+    .feature {
+      flex: 1 1 250px;
+      max-width: 300px;
+      margin: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .feature img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+    .feature h3 { margin-bottom: 10px; color: #333; }
+    .feature p { color: #666; }
 
-function App() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    .testimonials, .pricing {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .testimonial, .pricing-plan {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .testimonial p { font-style: italic; margin-bottom: 10px; }
+    .testimonial span { font-weight: bold; }
 
-  useEffect(() => {
-    // Fetch users from JSONPlaceholder API
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch users');
-        return res.json();
-      })
-      .then(data => {
-        setUsers(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+    .pricing-plan h3 {
+      color: #4e54c8;
+      margin-bottom: 10px;
+    }
+    .pricing-plan p.price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-  return (
-    <div className="App">
-      <h1>User List</h1>
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a { color: #8f94fb; text-decoration: none; margin: 0 10px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Boost Productivity with RemasTech</h1>
+    <p>The ultimate app to manage your time, tasks, and goals efficiently.</p>
+    <button>learn more</button>
+  </section>
 
-      {loading && <p>Loading users...</p>}
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-
-      {!loading && !error && (
-        <ListComponent
-          items={users}
-          renderItem={(user) => (
-            <div>
-              <strong>{user.name}</strong> — <em>{user.email}</em>
-            </div>
-          )}
-        />
-      )}
+  <section class="features">
+    <div class="feature">
+      <img src="https://img.icons8.com/ios-filled/50/000000/time.png" alt="Time Management Icon" />
+      <h3>Time Tracking</h3>
+      <p>Monitor where your time goes and increase your daily output.</p>
     </div>
-  );
-}
+    <div class="feature">
+      <img src="https://img.icons8.com/ios-filled/50/000000/checklist.png" alt="Checklist Icon" />
+      <h3>Task Organizer</h3>
+      <p>Create, prioritize, and complete tasks with ease and clarity.</p>
+    </div>
+    <div class="feature">
+      <img src="https://img.icons8.com/ios-filled/50/000000/goal.png" alt="Goal Icon" />
+      <h3>Goal Setting</h3>
+      <p>Set meaningful goals and track your progress towards them.</p>
+    </div>
+  <section class="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-plan">
+      <h3>Basic Plan</h3>
+      <p class="price">$1/weekly</p>
+      <p>$10/monthly</p>
+    </div>
+    <div class="pricing-plan">
+      <h3>Pro Plan</h3>
+      <p class="price">$9.99/month</p>
+      <p>$100/yearly</p>
+    </div>
+  </section>
 
-export default App;
+  <footer>
+    <p>Contact: info@remastech.com | +2348164441818</p>
+    <p>&copy; 2025 RemasTech. All rights reserved.</p>
+    <p>
+      <a href="#">Facebook:https://www.facebook.com/shuaib.musa.716/a>
+      <a href="#">Twitter: https://www.Twitter.com/shuaib.musa.716</a>
+      <a href="#">LinkedIn: https://www.facebook.com/shuaib.musa.716</a>
+    </p>
+  </footer>
+</body>
+</html>
