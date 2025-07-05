@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <Reta charset="UTF-8" />
+  <Reta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fictional Product Landing Page</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,6 +89,3 @@
       <a href="#">Twitter</a>
       <a href="#">LinkedIn</a>
     </p>
-  </footer>
-</body>
-</html>
