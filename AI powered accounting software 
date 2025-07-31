@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Accounting Software</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #0077cc; color: white; padding: 1rem; text-align: center; }
+    nav { display: flex; gap: 1rem; justify-content: center; background: #e1e1e1; padding: 0.5rem; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: #333; padding: 0.5rem; }
+    section { padding: 1rem; max-width: 900px; margin: auto; background: white; margin-top: 1rem; border-radius: 8px; }
+    input[type="text"] { padding: 0.5rem; width: 80%; }
+    button { padding: 0.5rem 1rem; margin-left: 1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI-Powered Accounting Software</h1>
+  <p>Learn, manage, and automate your accounting tasks intelligently</p>
+</header>
+
+<nav>
+  <a href="#search">Search</a>
+  <a href="#dictionary">Dictionary</a>
+  <a href="#voice">Voice Translator</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#fixed-assets">Fixed Assets</a>
+  <a href="#expenses">Expenses</a>
+  <a href="#revenue">Revenue</a>
+  <a href="#receivables">Receivables</a>
+  <a href="#payables">Payables</a>
+  <a href="#subledger">Subledger</a>
+  <a href="#reports">Reports</a>
+</nav>
+
+<section id="search">
+  <h2>🔍 Smart Search</h2>
+  <input type="text" placeholder="Search accounting topics..." />
+  <button onclick="alert('AI Search Coming Soon!')">Search</button>
+</section>
+
+<section id="dictionary">
+  <h2>📘 Accounting Dictionary</h2>
+  <p>Type a term to get its meaning:</p>
+  <input type="text" id="term" placeholder="e.g., amortization" />
+  <button onclick="showDefinition()">Explain</button>
+  <p id="definition"></p>
+</section>
+
+<section id="voice">
+  <h2>🎤 Voice Translator</h2>
+  <button onclick="startVoice()">Start Voice Input</button>
+  <p id="voice-result"></p>
+</section>
+
+<section id="quiz">
+  <h2>🧠 AI Quiz</h2>
+  <p>Coming soon: Test your accounting knowledge with smart questions.</p>
+</section>
+
+<section id="fixed-assets">
+  <h2>📦 Fixed Asset Management</h2>
+  <p>Track, depreciate, and manage long-term assets.</p>
+</section>
+
+<section id="expenses">
+  <h2>💸 Expense Management</h2>
+  <p>Automate and categorize business expenses.</p>
+</section>
+
+<section id="revenue">
+  <h2>💰 Revenue Management</h2>
+  <p>Analyze and project income intelligently.</p>
+</section>
+
+<section id="receivables">
+  <h2>📥 Accounts Receivable</h2>
+  <p>Manage invoices and incoming payments.</p>
+</section>
+
+<section id="payables">
+  <h2>📤 Accounts Payable</h2>
+  <p>Track vendor payments and liabilities.</p>
+</section>
+
+<section id="subledger">
+  <h2>📚 Subledger Accounting</h2>
+  <p>Detailed transaction breakdown for each module.</p>
+</section>
+
+<section id="reports">
+  <h2>📊 Reporting & Analytics</h2>
+  <p>View summaries, charts, and AI-generated insights.</p>
+</section>
+
+<script>
+  function showDefinition() {
+    const term = document.getElementById('term').value;
+    if (!term) return alert('Enter a term');
+    document.getElementById('definition').textContent = `AI: "${term}" is a key accounting term. (Real AI explanation would go here.)`;
+  }
+
+  function startVoice() {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert('Voice recognition not supported in your browser.');
+      return;
+    }
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.onresult = function(event) {
+      const result = event.results[0][0].transcript;
+      document.getElementById('voice-result').textContent = 'You said: ' + result;
+    };
+    recognition.start();
+  }
+</script>
+
+</body>
+</html>
